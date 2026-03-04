@@ -62,11 +62,12 @@ const selectedTag = computed({
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  color: rgba(245, 239, 230, 0.8);
+  color: var(--text-soft);
+  font-weight: 600;
 }
 
 .filter-header small {
-  color: rgba(245, 239, 230, 0.55);
+  color: var(--text-faint);
 }
 
 .tag-list {
@@ -76,11 +77,12 @@ const selectedTag = computed({
 }
 
 .tag-chip {
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 40px;
+  border: 1px solid rgba(142, 105, 73, 0.12);
   border-radius: 999px;
   padding: 0.6rem 0.95rem;
-  color: rgba(245, 239, 230, 0.85);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-soft);
+  background: var(--surface);
   transition:
     transform 160ms ease,
     background 160ms ease,
@@ -89,12 +91,12 @@ const selectedTag = computed({
 
 .tag-chip:hover {
   transform: translateY(-1px);
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--accent-soft-strong);
 }
 
 .tag-chip.active {
-  color: #221a17;
+  color: #fff9f2;
   border-color: transparent;
-  background: linear-gradient(135deg, #f29a4c 0%, #ffd166 100%);
+  background: linear-gradient(135deg, #eb8d40 0%, #d86d23 100%);
 }
 </style>

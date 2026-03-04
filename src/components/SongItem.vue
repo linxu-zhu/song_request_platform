@@ -25,6 +25,14 @@ const displayTags = computed(() => (props.song.tags.length ? props.song.tags : [
       type="button"
       @click="$emit('copy', song)"
     >
+      <img
+        class="card-paw"
+        src="https://api.iconify.design/twemoji/paw-prints.svg"
+        alt=""
+        aria-hidden="true"
+        referrerpolicy="no-referrer"
+      />
+
       <div class="song-main">
         <div class="song-heading">
           <div>
@@ -64,89 +72,125 @@ const displayTags = computed(() => (props.song.tags.length ? props.song.tags : [
 }
 
 .song-card {
+  position: relative;
   width: 100%;
   display: grid;
-  gap: 1rem;
+  gap: 0.65rem;
   text-align: left;
-  padding: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
+  padding: 0.72rem 0.82rem;
+  border: 1px solid rgba(212, 151, 188, 0.2);
+  border-radius: 26px;
   color: inherit;
   background:
-    linear-gradient(140deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-    rgba(18, 20, 31, 0.76);
+    radial-gradient(circle at top right, rgba(255, 204, 227, 0.34), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 246, 250, 0.96)),
+    rgba(255, 255, 255, 0.88);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
 }
 
+.card-paw {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+  object-fit: contain;
+}
+
 .song-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(242, 154, 76, 0.34);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  transform: translateY(-3px);
+  border-color: var(--accent-soft-strong);
+  box-shadow: 0 16px 32px rgba(196, 143, 176, 0.16);
 }
 
 .song-card.copied {
-  border-color: rgba(255, 209, 102, 0.55);
-  box-shadow: 0 18px 40px rgba(242, 154, 76, 0.18);
+  border-color: rgba(233, 107, 153, 0.42);
+  box-shadow: 0 16px 28px rgba(233, 107, 153, 0.15);
 }
 
 .song-main {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.45rem;
 }
 
 .song-heading {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.45rem;
 }
 
 .song-heading h3 {
   margin: 0;
-  font-size: 1.2rem;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .song-heading p {
-  margin: 0.35rem 0 0;
-  color: rgba(245, 239, 230, 0.72);
+  margin: 0.16rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.88rem;
 }
 
 .copy-state {
   flex-shrink: 0;
   align-self: flex-start;
   border-radius: 999px;
-  padding: 0.35rem 0.7rem;
-  color: rgba(255, 245, 235, 0.92);
-  background: rgba(242, 154, 76, 0.18);
+  padding: 0.22rem 0.52rem;
+  color: #cc4f84;
+  background: rgba(255, 173, 205, 0.2);
+  font-size: 0.76rem;
 }
 
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.36rem;
 }
 
 .song-tag {
   border-radius: 999px;
-  padding: 0.35rem 0.65rem;
-  color: rgba(255, 245, 235, 0.85);
-  background: rgba(255, 255, 255, 0.06);
+  padding: 0.22rem 0.48rem;
+  color: #5e6f6b;
+  background: rgba(133, 216, 198, 0.18);
+  font-size: 0.74rem;
 }
 
 .song-note {
   margin: 0;
-  color: rgba(245, 239, 230, 0.6);
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  line-height: 1.45;
 }
 
 .song-action {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .request-text {
-  color: #ffd166;
-  font-size: 0.95rem;
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .song-card {
+    padding: 0.8rem 0.92rem;
+  }
+
+  .song-heading {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .song-action {
+    justify-content: flex-end;
+  }
 }
 </style>

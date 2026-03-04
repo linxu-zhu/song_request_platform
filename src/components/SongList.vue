@@ -56,8 +56,8 @@ defineEmits(['copy']);
 
 .song-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
   margin: 0;
   padding: 0;
 }
@@ -67,14 +67,15 @@ defineEmits(['copy']);
   place-items: center;
   min-height: 240px;
   padding: 1.5rem;
-  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border: 1px dashed rgba(142, 105, 73, 0.2);
   border-radius: 24px;
-  color: rgba(245, 239, 230, 0.76);
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .panel-state.error {
-  color: #ffb4a8;
-  border-color: rgba(255, 139, 123, 0.4);
+  color: var(--danger);
+  border-color: rgba(199, 90, 75, 0.35);
 }
+
 </style>
